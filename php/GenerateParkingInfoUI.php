@@ -1,7 +1,6 @@
 <?php
-	include_once ('DatabaseConnection.php');
 
-	$dbConnection = new DatabaseConnection(False);
+	require_once('dbconnection.php');
 
 	// getting IT Parking Lot data
 	// * Don't have to mark database *field*
@@ -11,21 +10,21 @@
 	// ========================= IT Parking Lot ========================= //
 	$area = "IT Parking Lot";
 	$sql = "SELECT * FROM ParkingLot WHERE Area = '$area'";
-	$result = $dbConnection->executeQuery($sql);
+	$result = mysql_query($sql, $connection) or die("Could not execute query '$sql' :" . mysql_error()."<br>\n");
 	OutputInfoBox($area,$result);
 	// ========================= END ========================= //
 
 	// ========================= Commons Garage ========================= //
 	$area = "Commons Garage";
 	$sql = "SELECT * FROM ParkingLot WHERE Area = '$area'";
-	$result = $dbConnection->executeQuery($sql);
+	$result = mysql_query($sql, $connection) or die("Could not execute query '$sql' :" . mysql_error()."<br>\n");
 	OutputInfoBox($area,$result);
 	// ========================= END ========================= //
 
 	// ========================= Admission Building ========================= //
 	$area = "Admission Building";
 	$sql = "SELECT * FROM ParkingLot WHERE Area = '$area'";
-	$result = $dbConnection->executeQuery($sql);
+	$result = mysql_query($sql, $connection) or die("Could not execute query '$sql' :" . mysql_error()."<br>\n");
 	OutputInfoBox($area,$result);
 	// ========================= END ========================= //
 
@@ -47,7 +46,7 @@
 	    	echo"<span class = 'parkNum' id = 'parkNum'>Number: $num </span>";
 	    	echo"<span class = 'parkPerm' id = 'parkPerm'>Permission: $permission </span>";
 	    	
-	    	echo "<span class = 'parkStatus' id = 'parkStatus'>";
+	    	echo "<span class = 'parkStatus' id = '$id'>";
 	    	if ($isOpen){
 	    		echo "<span class = 'parkOpen' id = 'parkStatus'>Avaliable</span>";
 	    		echo "<Button>Reserve</Button>";	

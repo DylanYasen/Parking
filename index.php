@@ -7,7 +7,10 @@
 
 </head>
 <body>
+
 <?php
+	//include_once ('php/DatabaseConnection.php');
+	//$dbConnection = new DatabaseConnection(False);
 	include_once ('php/GenerateParkingInfoUI.php');
 ?>
 
@@ -19,16 +22,19 @@
 
 				// UI
 				$parkHeader = $(this).parent();
-				$parkHeaderID = $parkHeader.id;
+				console.log($parkHeader);
+				$parkHeaderID = $parkHeader.attr('id');
+				console.log($parkHeaderID);
 				$statusSpan = $parkHeader.find('#parkStatus'); 
 				$statusSpan.text('Occupied');
 				$statusSpan.removeClass('parkOpen').addClass('parkClosed');
 
 				// Update backend
 				$.ajax({
-					url: 'php/UpdateDatabase.php',
+					url: 'php/UpdateParkInfoDB.php',
 					type: 'POST',
-					data: {id: '$parkHeaderID'},
+					data: {id: $parkHeaderID},
+
 				})
 				.done(function(XMLHttpRequest) {
 					console.log("success");
