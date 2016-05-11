@@ -1,0 +1,54 @@
+div.infoBoxParent{
+	text-align: center;
+}
+
+div.parkingInfoBox{
+	margin: 10px;
+	display: inline-table;
+	background: grey;
+	outline-width: 2px;
+	outline-color: black;
+	outline-style: dotted;
+	width: 350px;
+	height: 300px;
+}
+
+div.parkingInfoBox h1{
+	text-align: center;
+	color: wheat;
+}
+
+div.parkingInfoBox h4{
+	margin: 0px;
+
+	color: wheat;
+}
+
+div.parkingInfoBox hr{
+	/*
+	border-color works in Chrome and Safari 
+	background-color works in Firefox and Opera
+	color works in IE7+
+	*/
+	border-color: black;
+	background-color: black;
+	color: black;
+}
+
+div.parkingInfoBox button{
+ 	margin-left: 10px;
+}
+
+span.parkNum{
+	color: blue;
+}
+span.parkPerm{
+	color: yellow;
+}
+span.parkOpen{
+	color: green;
+}
+span.parkClosed{
+	color: red;
+}
+
